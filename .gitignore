@@ -36,4 +36,4 @@ build/
 
 ### Mac OS ###
 .DS_Store
-/src/main/resources/generate/*
+otow-engine-template/src/main/resources/generate/*

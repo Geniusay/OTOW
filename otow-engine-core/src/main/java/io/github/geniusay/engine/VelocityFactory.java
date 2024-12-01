@@ -2,6 +2,7 @@ package io.github.geniusay.engine;
 
 import org.apache.velocity.app.VelocityEngine;
 
+import java.util.Objects;
 import java.util.Properties;
 
 /**
@@ -13,7 +14,8 @@ public class VelocityFactory {
 
     static{
         props = new Properties();
-        props.setProperty("file.resource.loader.path", "src/main/resources/template"); // 设置模板路径
+        String resourcePath = Objects.requireNonNull(VelocityFactory.class.getClassLoader().getResource("template")).getPath();
+        props.setProperty("file.resource.loader.path", resourcePath); // 设置模板路径
         props.setProperty("input.encoding", "UTF-8"); // 设置输入文件的编码
         props.setProperty("output.encoding", "UTF-8"); // 设置输出文件的编码
     }
