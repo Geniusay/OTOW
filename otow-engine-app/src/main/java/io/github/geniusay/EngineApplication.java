@@ -24,7 +24,7 @@ public class EngineApplication {
 
     public static void main(String[] args) {
         VelocityEngine velocity = VelocityFactory.getVelocity();
-        EntityTemplate template = new EntityTemplate("E:\\Project\\OTOW\\otow-engine\\src\\main\\resources\\generate\\", "org.example.entity", "Test", "test");
+        EntityTemplate template = new EntityTemplate("E:\\Project\\OTOW\\otow-engine\\otow-engine-template\\src\\main\\resources\\generate", "org.example.entity", "Test", "test");
         Template velocityTemplate = velocity.getTemplate(template.getTemplateFilePath());
         VelocityContext context = template.getContext();
         StringWriter writer = new StringWriter();
