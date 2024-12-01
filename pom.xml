@@ -6,7 +6,13 @@
 
     <groupId>io.github.geniusay</groupId>
     <artifactId>otow-engine</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>otow-engine-core</module>
+        <module>otow-engine-app</module>
+        <module>otow-engine-template</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
