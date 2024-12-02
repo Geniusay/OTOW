@@ -12,6 +12,7 @@
         <module>otow-engine-core</module>
         <module>otow-engine-app</module>
         <module>otow-engine-template</module>
+        <module>otow-file-tree</module>
     </modules>
 
     <properties>
