@@ -1,4 +1,4 @@
-package io.github.geniusay.constant;
+package io.github.geniusay.common.constant;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,6 +1,5 @@
 package io.github.geniusay.template.sql;
 
-import io.github.geniusay.constant.DatabaseConstant;
 import io.github.geniusay.utils.EntityScanner;
 
 import java.io.FileWriter;

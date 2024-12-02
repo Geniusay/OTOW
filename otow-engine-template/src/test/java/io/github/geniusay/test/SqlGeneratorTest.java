@@ -5,7 +5,7 @@ import io.github.geniusay.template.sql.SQLFileGenerator;
 import io.github.geniusay.template.sql.SQLManager;
 import org.junit.Test;
 
-import static io.github.geniusay.constant.DatabaseConstant.DB_NAME_PREFIX;
+import static io.github.geniusay.common.constant.DatabaseConstant.DB_NAME_PREFIX;
 
 public class SqlGeneratorTest {
 
