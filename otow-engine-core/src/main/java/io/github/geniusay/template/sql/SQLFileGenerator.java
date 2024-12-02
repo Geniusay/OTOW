@@ -32,7 +32,6 @@ public class SQLFileGenerator {
      */
     public static String generateDatabaseSQL(String packageName, String dbName) {
         List<Class<?>> entityClasses = EntityScanner.scanEntities(packageName);
-        dbName = DatabaseConstant.DB_NAME_PREFIX + dbName;
 
         StringBuilder sql = new StringBuilder();
         sql.append("CREATE DATABASE IF NOT EXISTS ").append(NameConverter.escapeName(dbName)).append(";\n");
