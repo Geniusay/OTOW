@@ -20,7 +20,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <mysql.version>8.0.23</mysql.version>
         <mybatis.version>2.1.1</mybatis.version>
-        <mybatis-plus.version>3.4.1</mybatis-plus.version>
+        <mybatis-plus.version>3.5.3</mybatis-plus.version>
         <boot.version>2.3.9.RELEASE</boot.version>
         <redis.version>2.3.9.RELEASE</redis.version>
         <io-lettcue.version>6.1.6.RELEASE</io-lettcue.version>
@@ -79,6 +79,12 @@
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
 
@@ -175,6 +181,17 @@
         </dependency>
 
         <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-generator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-core</artifactId>
+            <version>${mybatis-plus.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
         </dependency>
@@ -184,6 +201,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
