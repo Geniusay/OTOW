@@ -11,7 +11,6 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @Author: zq
- * @Description: TODO
  * @Date: 2024/12/2 22:40
  */
 public class CreateFileUtil {
@@ -58,20 +57,20 @@ public class CreateFileUtil {
     private static void createDirectories(String directoryPath) throws IOException {
         // 路径无效直接抛出异常
         if (directoryPath == null || directoryPath.isEmpty()) {
-            throw new IllegalArgumentException("文件路径无效");
+            throw new IllegalArgumentException("Invalid directory path");
         }
         // 判断路径是否合法
         try {
             Paths.get(directoryPath); // 尝试将路径转换为有效路径，若非法会抛出异常
         } catch (InvalidPathException e) {
-            throw new IOException("非法路径: " + directoryPath, e);
+            throw new IOException("Invalid path: " + directoryPath, e);
         }
 
         File dir = new File(directoryPath);
 
         // 如果目录存在且是文件，抛出异常
         if (dir.exists() && !dir.isDirectory()) {
-            throw new IOException("文件已经存在: " + directoryPath);
+            throw new IOException("A file exists at the specified path: " + directoryPath);
         }
 
         // 不存在且路径合法，创建目录
@@ -79,12 +78,12 @@ public class CreateFileUtil {
             // 使用 mkdir只创建子目录
             if (dir.getParentFile().exists()) {
                 if (!dir.mkdir()) {
-                    throw new IOException("文件夹创建失败: " + directoryPath);
+                    throw new IOException("Failed to create directory: " + directoryPath);
                 }
             } else {
                 // 使用 mkdirs（递归创建所有不存在的目录）
                 if (!dir.mkdirs()) {
-                    throw new IOException("文件夹创建失败: " + directoryPath);
+                    throw new IOException("Failed to create directory structure: " + directoryPath);
                 }
             }
         }
@@ -100,7 +99,7 @@ public class CreateFileUtil {
     public static void createFile(String filePath) throws IOException {
         // 路径无效直接抛出异常
         if (filePath == null || filePath.isEmpty()) {
-            throw new IllegalArgumentException("无效路径: " + filePath);
+            throw new IllegalArgumentException("Invalid file path: " + filePath);
         }
 
         // 判断路径是否合法
@@ -108,7 +107,7 @@ public class CreateFileUtil {
             // 尝试将路径转换为有效路径，若非法会抛出异常
             Paths.get(filePath);
         } catch (InvalidPathException e) {
-            throw new IOException("非法路径: " + filePath, e);
+            throw new IOException("Invalid file path: " + filePath, e);
         }
         // 使用 Path 类处理路径，避免手动处理分隔符
         String directoryPath = Paths.get(filePath).getParent().toString();
@@ -127,7 +126,7 @@ public class CreateFileUtil {
         File file = new File(filePath);
         if (!file.exists()) {
             if (!file.createNewFile()) {
-                throw new IOException("文件创建失败: " + file.getAbsolutePath());
+                throw new IOException("Failed to create the file: " + file.getAbsolutePath());
             }
         }
     }
@@ -150,63 +149,3 @@ public class CreateFileUtil {
         }
     }
 }
-    /**
-     * 创建目录
-     *
-     * @param directoryPath 目录路径
-     * @throws IOException 如果目录创建失败
-     */
-/*
-    private static void createDirectories(String directoryPath) throws IOException {
-        File file = new File(directoryPath);
-        // 不存在，创建文件
-        if(!file.exists()){
-            // 创建成功返回提示
-            boolean mkdirs = file.mkdirs();
-            if (file.mkdirs()){
-//                System.out.println("文件创建成功： " + file.getAbsolutePath());
-                return;
-            }else { // 创建失败返回提示
-                throw new IOException("文件创建失败： " + file.getAbsolutePath());
-            }
-        }else { // 存在，直接返回
-//            System.out.println("文件已存在： "+ file.getAbsolutePath());
-            return;
-        }
-    }*/
-    /**
-     * 创建文件，检查路径是否存在，不存在则创建
-     *
-     * @param filePath 文件路径，如：xxx/yyy/pool.class
-     * @throws IOException 如果文件创建失败
-     */
-/*    public static void createFile(String filePath) throws IOException{
-        // 获取当前系统的文件分隔符
-        String separator = File.separator;
-
-        // 使用 Path 类处理路径，避免手动处理分隔符
-        String directoryPath = Paths.get(filePath).getParent().toString();
-
-        // 使用缓存路径，避免重复检查
-        String cachedPath = createdDirectoriesCache.get(directoryPath);
-        if (cachedPath == null){
-            // 如果缓存中没有路径，进行路径创建
-            createDirectories(directoryPath);
-            // 将路径加入缓存
-            createdDirectoriesCache.put(directoryPath,directoryPath);
-        }
-
-        // 创建文件
-        File file = new File(filePath);
-        if (!file.exists()) {
-            if (file.createNewFile()) {
-//                System.out.println("文件创建 :  " + file.getAbsolutePath());
-                return;
-            } else {
-                throw new IOException("文件创建失败 :  " + file.getAbsolutePath());
-            }
-        } else {
-//            System.out.println("文件已经存在:  " + file.getAbsolutePath());
-            return;
-        }
-    }*/
