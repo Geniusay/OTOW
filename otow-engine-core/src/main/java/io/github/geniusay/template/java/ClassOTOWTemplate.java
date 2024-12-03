@@ -1,6 +1,6 @@
 package io.github.geniusay.template.java;
 
-import io.github.geniusay.template.Template;
+import io.github.geniusay.template.VelocityOTOWTemplate;
 import org.apache.velocity.VelocityContext;
 
 import java.nio.file.Path;
@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 /**
  * 类文件生成模板
  */
-public abstract class ClassTemplate extends Template {
+public abstract class ClassOTOWTemplate extends VelocityOTOWTemplate {
 
     // 类需要导入的类
     protected final Set<String> imports = new HashSet<>();
@@ -29,7 +29,7 @@ public abstract class ClassTemplate extends Template {
     protected final String className;
 
     private static final String CLASS_TEMPLATE_PATH = "class.vm";
-    public ClassTemplate(String outputDir, String packagePath, String className) {
+    public ClassOTOWTemplate(String outputDir, String packagePath, String className) {
         super(CLASS_TEMPLATE_PATH, outputDir);
         this.packagePath = packagePath;
         this.className = className;
@@ -56,7 +56,7 @@ public abstract class ClassTemplate extends Template {
     }
 
     public void addAnnotations(List<String> annotations){
-        this.annotations.addAll(annotations.stream().map(ClassTemplate::getAnnotationToken).collect(Collectors.toSet()));
+        this.annotations.addAll(annotations.stream().map(ClassOTOWTemplate::getAnnotationToken).collect(Collectors.toSet()));
     }
 
     public void addImportPaths(List<String> importPath) {

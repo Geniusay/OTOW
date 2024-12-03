@@ -1,6 +1,6 @@
 package io.github.geniusay.template.java.model;
 
-import io.github.geniusay.template.java.ClassTemplate;
+import io.github.geniusay.template.java.ClassOTOWTemplate;
 import org.apache.velocity.VelocityContext;
 
 import java.util.stream.Collectors;
@@ -10,7 +10,7 @@ import static io.github.geniusay.common.constant.TemplateConstant.ENTITY_ANNOTAT
 /**
  * 数据库实体类模板
  */
-public class EntityTemplate extends ClassTemplate {
+public class EntityTemplate extends ClassOTOWTemplate {
 
     // 数据库表名
     protected String tableName;

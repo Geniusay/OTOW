@@ -2,28 +2,18 @@ package io.github.geniusay.template;
 
 import org.apache.velocity.VelocityContext;
 
-/**
- * 模板类
- */
-public abstract class Template {
+public abstract class VelocityOTOWTemplate extends OTOWTemplate {
 
     // 模板文件路径
     protected final String templateFilePath;
 
-    // 输出文件位置
-    protected final String outputDir;
-
-    public Template(String templateFilePath, String outputDir) {
+    protected VelocityOTOWTemplate(String templateFilePath, String outputPath) {
+        super(outputPath);
         this.templateFilePath = templateFilePath;
-        this.outputDir = outputDir;
     }
 
     public String getTemplateFilePath() {
         return templateFilePath;
-    }
-
-    public String getOutputDir() {
-        return outputDir;
     }
 
     /**
