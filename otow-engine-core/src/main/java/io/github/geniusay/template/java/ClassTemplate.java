@@ -1,5 +1,6 @@
-package io.github.geniusay.template;
+package io.github.geniusay.template.java;
 
+import io.github.geniusay.template.Template;
 import org.apache.velocity.VelocityContext;
 
 import java.nio.file.Path;
@@ -11,13 +12,13 @@ import java.util.stream.Collectors;
 /**
  * 类文件生成模板
  */
-public abstract class ClassTemplate extends Template{
+public abstract class ClassTemplate extends Template {
 
     // 类需要导入的类
     protected final Set<String> imports = new HashSet<>();
 
     // 类的成员变量
-    protected final Set<ModelField> modelFields = new HashSet<>();
+    protected final Set<MetalField> metalFields = new HashSet<>();
 
     // 类上所加的注解
     protected final Set<String> annotations = new HashSet<>();
@@ -27,8 +28,9 @@ public abstract class ClassTemplate extends Template{
 
     protected final String className;
 
-    public ClassTemplate(String templateFilePath, String outputDir, String packagePath, String className) {
-        super(templateFilePath, outputDir);
+    private static final String CLASS_TEMPLATE_PATH = "class.vm";
+    public ClassTemplate(String outputDir, String packagePath, String className) {
+        super(CLASS_TEMPLATE_PATH, outputDir);
         this.packagePath = packagePath;
         this.className = className;
     }
@@ -73,16 +75,16 @@ public abstract class ClassTemplate extends Template{
         return className;
     }
 
-    public Set<ModelField> getModelFields() {
-        return modelFields;
+    public Set<MetalField> getModelFields() {
+        return metalFields;
     }
 
-    public void addModelField(ModelField modelField){
-        this.modelFields.add(modelField);
+    public void addModelField(MetalField metalField){
+        this.metalFields.add(metalField);
     }
 
-    public void addModelFields(List<ModelField> modelFields){
-        this.modelFields.addAll(modelFields);
+    public void addModelFields(List<MetalField> metalFields){
+        this.metalFields.addAll(metalFields);
     }
 
     @Override
@@ -91,7 +93,7 @@ public abstract class ClassTemplate extends Template{
         context.put("package", packagePath);
         context.put("imports", imports);
         context.put("className", className);
-        context.put("fields", modelFields);
+        context.put("fields", metalFields);
         context.put("annotations", annotations);
         return context;
     }

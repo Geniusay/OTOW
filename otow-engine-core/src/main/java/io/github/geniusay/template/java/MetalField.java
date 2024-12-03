@@ -1,11 +1,11 @@
-package io.github.geniusay.template;
+package io.github.geniusay.template.java;
 
 import java.util.Objects;
 
 /**
  * 生成实体类的成员变量描述
  */
-public class ModelField {
+public class MetalField {
 
     // 成员变量名称
     private String name;
@@ -16,12 +16,12 @@ public class ModelField {
     // 属性注释
     private String description;
 
-    public ModelField(String name, String clazz) {
+    public MetalField(String name, String clazz) {
         this.name = name;
         this.clazz = clazz;
     }
 
-    public ModelField(String name, String clazz, String description) {
+    public MetalField(String name, String clazz, String description) {
         this.name = name;
         this.clazz = clazz;
         this.description = description;
@@ -31,7 +31,7 @@ public class ModelField {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ModelField that = (ModelField) o;
+        MetalField that = (MetalField) o;
         return name.equals(that.name);
     }
 

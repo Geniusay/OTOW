@@ -2,7 +2,7 @@ package io.github.geniusay;
 
 
 import io.github.geniusay.engine.VelocityFactory;
-import io.github.geniusay.template.model.EntityTemplate;
+import io.github.geniusay.template.java.model.EntityTemplate;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
