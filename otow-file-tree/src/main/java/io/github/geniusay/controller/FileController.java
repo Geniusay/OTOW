@@ -13,15 +13,25 @@ public class FileController {
 
     private final FileService fileService;
 
-    // 获取指定文件夹的结构
+    /**
+     * 获取指定项目的文件夹结构
+     *
+     * @param pIdAndPath 项目 ID 和路径，格式为：项目ID|相对路径
+     * @return 文件夹树
+     */
     @GetMapping("/folder")
-    public FolderNode getFolderTree(@RequestParam String path) {
-        return fileService.getFolderTree(path);
+    public FolderNode getFolderTree(@RequestParam String pIdAndPath) {
+        return fileService.getFolderTree(pIdAndPath);
     }
 
-    // 获取指定文件的信息
+    /**
+     * 获取指定项目的文件信息
+     *
+     * @param pIdAndPath 项目 ID 和路径，格式为：项目ID|相对路径
+     * @return 文件信息
+     */
     @GetMapping("/file")
-    public FileNode getFileInfo(@RequestParam String path) {
-        return fileService.getFileInfo(path);
+    public FileNode getFileInfo(@RequestParam String pIdAndPath) {
+        return fileService.getFileInfo(pIdAndPath);
     }
 }

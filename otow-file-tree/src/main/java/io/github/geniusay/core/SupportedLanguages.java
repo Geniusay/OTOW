@@ -49,6 +49,7 @@ public class SupportedLanguages {
         CONFIG_FILES.add("env");
         CONFIG_FILES.add("pom");
         CONFIG_FILES.add("gradle");
+        CONFIG_FILES.add("sql");
 
         // 脚本文件
         SCRIPT_FILES.add("sh");
