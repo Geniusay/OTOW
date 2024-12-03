@@ -1,13 +1,17 @@
 package io.github.geniusay.service;
 
+import io.github.geniusay.core.FileContentReader;
 import io.github.geniusay.core.FileTreeGenerator;
 import io.github.geniusay.core.ProjectMapping;
+import io.github.geniusay.core.SupportedLanguages;
 import io.github.geniusay.pojo.FileNode;
 import io.github.geniusay.pojo.FolderNode;
 import io.github.geniusay.utils.PathUtils;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class FileService {
@@ -60,12 +64,22 @@ public class FileService {
             throw new IllegalArgumentException("文件不存在: " + filePath);
         }
 
-        return new FileNode(
-                file.getName(),
-                getFileExtension(file.getName()),
-                file.length(),
-                io.github.geniusay.core.FileContentReader.readFileContent(file, file.length())
-        );
+        String fileName = file.getName();
+        String fileType = getFileExtension(fileName);
+        long fileSize = file.length();
+        List<String> rawLines = new ArrayList<>();
+
+        // 判断文件是否为可展示类型
+        if (!SupportedLanguages.isDisplayableFile(fileType)) {
+            rawLines.add("文件类型不支持展示，请下载后查看。");
+        } else if (FileContentReader.isFileTooLarge(fileSize)) {
+            rawLines.add("文件内容过大或不可展示，请下载后查看。");
+        } else {
+            // 可展示类型且文件大小在可预览范围内，读取文件内容
+            rawLines = FileContentReader.readFileContent(file, fileSize);
+        }
+
+        return new FileNode(fileName, fileType, fileSize, rawLines);
     }
 
     /**

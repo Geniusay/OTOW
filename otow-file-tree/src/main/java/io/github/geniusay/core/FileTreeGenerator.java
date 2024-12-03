@@ -41,7 +41,7 @@ public class FileTreeGenerator {
         }
 
         // 当前文件夹的路径
-        String folderName = currentPath.isEmpty() ? root.getName() : currentPath + "|" + root.getName();
+        String folderName = currentPath.isEmpty() ? root.getName() : currentPath + "/" + root.getName();
         if (rootPath.isEmpty()) {
             rootPath = folderName; // 记录根路径
         }
@@ -69,7 +69,7 @@ public class FileTreeGenerator {
             // 去除根路径前缀
             List<String> adjustedFolderList = new ArrayList<>();
             for (String folder : folderList) {
-                adjustedFolderList.add(folder.replaceFirst("^" + rootPath + "\\|", ""));
+                adjustedFolderList.add(folder.replaceFirst("^" + rootPath + "/", ""));
             }
             folderNode.setFolderList(adjustedFolderList);
         }

@@ -3,7 +3,7 @@ package io.github.geniusay.utils;
 public class PathUtils {
 
     // 自定义的统一路径分隔符
-    private static final String CUSTOM_SEPARATOR = "|";
+    private static final String CUSTOM_SEPARATOR = "/";
 
     /**
      * 将系统路径转换为自定义路径（以 `|` 为分隔符）
@@ -33,6 +33,7 @@ public class PathUtils {
      * @return [项目ID, 相对路径]
      */
     public static String[] parseProjectIdAndPath(String projectIdAndPath) {
+        projectIdAndPath = projectIdAndPath.substring(1);
         int separatorIndex = projectIdAndPath.indexOf(CUSTOM_SEPARATOR);
         if (separatorIndex == -1) {
             return new String[]{projectIdAndPath, ""};

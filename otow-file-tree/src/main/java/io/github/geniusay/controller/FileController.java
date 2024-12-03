@@ -1,7 +1,5 @@
 package io.github.geniusay.controller;
 
-import io.github.geniusay.pojo.FileNode;
-import io.github.geniusay.pojo.FolderNode;
 import io.github.geniusay.service.FileService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -14,24 +12,24 @@ public class FileController {
     private final FileService fileService;
 
     /**
-     * 获取指定项目的文件夹结构
+     * 获取指定项目的文件或文件夹信息
      *
-     * @param pIdAndPath 项目 ID 和路径，格式为：项目ID|相对路径
-     * @return 文件夹树
+     * @param path 项目 ID 和路径，格式为：项目ID|相对路径
+     * @return 文件信息或文件夹树
      */
-    @GetMapping("/folder")
-    public FolderNode getFolderTree(@RequestParam String pIdAndPath) {
-        return fileService.getFolderTree(pIdAndPath);
+    @GetMapping("/{*path}")
+    public Object getFileOrFolderInfo(@PathVariable("path") String path) {
+        // 判断路径是否是文件（以 .xxx 结尾）
+        if (isFile(path)) {
+            return fileService.getFileInfo(path);
+        } else {
+            return fileService.getFolderTree(path);
+        }
     }
 
     /**
-     * 获取指定项目的文件信息
-     *
-     * @param pIdAndPath 项目 ID 和路径，格式为：项目ID|相对路径
-     * @return 文件信息
      */
-    @GetMapping("/file")
-    public FileNode getFileInfo(@RequestParam String pIdAndPath) {
-        return fileService.getFileInfo(pIdAndPath);
+    private boolean isFile(String path) {
+        return path.matches(".*\\.[a-zA-Z0-9]+$");
     }
 }

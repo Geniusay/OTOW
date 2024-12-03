@@ -79,11 +79,4 @@ public class SupportedLanguages {
     public static boolean isDisplayableFile(String fileExtension) {
         return DISPLAYABLE_FILE_TYPES.contains(fileExtension.toLowerCase());
     }
-
-    /**
-     * 判断文件是否为 Dockerfile（特殊情况）
-     */
-    public static boolean isDockerfile(String fileName) {
-        return "dockerfile".equalsIgnoreCase(fileName);
-    }
 }

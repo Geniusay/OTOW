@@ -7,7 +7,7 @@ import java.util.List;
 public class FileContentReader {
 
     private static final long MAX_PREVIEW_SIZE = 1024 * 1024; // 最大预览大小：1MB
-    private static final int PARTIAL_CONTENT_SIZE = 16 * 1024; // 部分展示大小：16KB
+    private static final int PARTIAL_CONTENT_SIZE = 1024; // 部分展示大小：1KB
 
     // 读取文件内容（按行分割）
     public static List<String> readFileContent(File file, long fileSize) {
