@@ -4,15 +4,18 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class Params {
+/**
+ * 参数背包，存放传过来的参数
+ */
+public class ParamBag {
 
     private final Map<String, Object> params;
 
-    public Params() {
+    public ParamBag() {
         this.params = new HashMap<>();
     }
 
-    public Params kv(String key, Object value){
+    public ParamBag kv(String key, Object value){
         params.put(key, value);
         return this;
     }
