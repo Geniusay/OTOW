@@ -5,7 +5,7 @@ import io.github.geniusay.entity.dto.AddFileDTO;
 import io.github.geniusay.entity.dto.AddFolderDTO;
 import io.github.geniusay.entity.vo.NodeVO;
 import io.github.geniusay.entity.dto.UpdateFileDTO;
-import io.github.geniusay.service.VirtualFileService;
+import io.github.geniusay.service.IVirtualFileService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class VirtualFileController {
 
-    private final VirtualFileService virtualFileService;
+    private final IVirtualFileService virtualFileService;
 
     /**
      * 初始化虚拟文件树

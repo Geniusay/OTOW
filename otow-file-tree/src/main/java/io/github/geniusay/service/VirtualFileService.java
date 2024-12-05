@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class VirtualFileService {
+public class VirtualFileService implements IVirtualFileService {
 
     /**
      * 初始化虚拟文件树
@@ -33,6 +33,7 @@ public class VirtualFileService {
      * @param treeId        虚拟树ID（可选）
      * @return 虚拟树ID
      */
+    @Override
     public String initializeVirtualTree(String directoryPath, String treeId) {
         if (treeId == null || treeId.isEmpty()) {
             treeId = UUIDUtils.generateShortUUID();
@@ -100,10 +101,11 @@ public class VirtualFileService {
     /**
      * 添加文件夹
      *
-     * @param treeId 虚拟树ID
+     * @param treeId  虚拟树ID
      * @param request 添加文件夹的请求
      * @return 新文件夹的ID
      */
+    @Override
     public String addFolder(String treeId, AddFolderDTO request) {
         VirtualFileTree tree = getTree(treeId);
         VirtualFolderNode parent = getParentFolder(tree, treeId, request.getParentId());
@@ -123,10 +125,11 @@ public class VirtualFileService {
     /**
      * 添加文件
      *
-     * @param treeId 虚拟树ID
+     * @param treeId  虚拟树ID
      * @param request 添加文件的请求
      * @return 新文件的ID
      */
+    @Override
     public String addFile(String treeId, AddFileDTO request) {
         VirtualFileTree tree = getTree(treeId);
         VirtualFolderNode parent = getParentFolder(tree, treeId, request.getParentId());
@@ -151,9 +154,10 @@ public class VirtualFileService {
     /**
      * 覆盖文件内容
      *
-     * @param treeId 虚拟树ID
+     * @param treeId  虚拟树ID
      * @param request 修改文件内容的请求
      */
+    @Override
     public void updateFileContent(String treeId, UpdateFileDTO request) {
         VirtualFileTree tree = getTree(treeId);
         VirtualFileNode file = tree.getFileMap().get(request.getFileId());
@@ -194,6 +198,7 @@ public class VirtualFileService {
      * @param treeId 虚拟树ID
      * @param nodeId 节点ID
      */
+    @Override
     public void deleteNode(String treeId, String nodeId) {
         VirtualFileTree tree = getTree(treeId);
         if (tree.getRoot().getId().equals(nodeId)) {
@@ -237,6 +242,7 @@ public class VirtualFileService {
      * @param nodeId  节点ID
      * @param newName 新名称
      */
+    @Override
     public void renameNode(String treeId, String nodeId, String newName) {
         VirtualFileTree tree = getTree(treeId);
         VirtualFolderNode parent = findParentOfNode(tree.getRoot(), nodeId);
@@ -286,6 +292,7 @@ public class VirtualFileService {
      * @param parentId 父节点ID（可以为空表示根）
      * @return 子节点列表
      */
+    @Override
     public List<NodeVO> getChildrenNodes(String treeId, String parentId) {
         VirtualFileTree tree = getTree(treeId);
         VirtualFolderNode parent = getParentFolder(tree, treeId, parentId);
@@ -312,6 +319,7 @@ public class VirtualFileService {
      * @param fileId 文件ID
      * @return 文件内容
      */
+    @Override
     public List<String> getFileContent(String treeId, String fileId) {
         VirtualFileTree tree = getTree(treeId);
         VirtualFileNode file = tree.getFileMap().get(fileId);
@@ -336,6 +344,7 @@ public class VirtualFileService {
      * @param treeId     虚拟树ID
      * @param exportPath 导出路径
      */
+    @Override
     public void exportVirtualTree(String treeId, String exportPath) {
         VirtualFileTree tree = getTree(treeId);
         File exportDir = new File(exportPath);
