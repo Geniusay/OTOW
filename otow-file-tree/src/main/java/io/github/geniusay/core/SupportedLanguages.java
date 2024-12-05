@@ -14,6 +14,9 @@ public class SupportedLanguages {
     // 合并所有可展示的文件类型
     private static final Set<String> DISPLAYABLE_FILE_TYPES = new HashSet<>();
 
+    // 不可展示文件的提示信息
+    public static final String UNSUPPORTED_FILE_MESSAGE = "文件内容过大或不可展示，请下载后查看。";
+
     static {
         // 编程语言文件
         PROGRAMMING_LANGUAGES.add("java");

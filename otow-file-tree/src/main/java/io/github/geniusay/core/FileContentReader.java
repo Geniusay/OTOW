@@ -7,7 +7,7 @@ import java.util.List;
 public class FileContentReader {
 
     private static final long MAX_PREVIEW_SIZE = 1024 * 1024; // 最大预览大小：1MB
-    private static final int PARTIAL_CONTENT_SIZE = 1024; // 部分展示大小：1KB
+    private static final int PARTIAL_CONTENT_SIZE = 16 * 1024; // 部分展示大小：16KB
 
     // 读取文件内容（按行分割）
     public static List<String> readFileContent(File file, long fileSize) {
@@ -22,13 +22,13 @@ public class FileContentReader {
 
                 // 如果文件内容过大，只读取部分内容
                 if (bytesRead > PARTIAL_CONTENT_SIZE) {
-                    lines.add("...（内容过长，仅展示部分）");
+                    lines.add(SupportedLanguages.UNSUPPORTED_FILE_MESSAGE);
                     break;
                 }
             }
         } catch (IOException e) {
             lines.clear();
-            lines.add("读取文件内容失败");
+            lines.add(SupportedLanguages.UNSUPPORTED_FILE_MESSAGE);
         }
         return lines;
     }
