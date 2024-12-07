@@ -101,4 +101,13 @@ public class VelocityGenerateTest {
         String generate = velocityCodeEngine.generate(serviceImplTemplate);
         System.out.println(generate);
     }
+
+    @Test
+    public void generateApplication(){
+        VelocityCodeEngine velocityCodeEngine = new VelocityCodeEngine();
+        ApplicationTemplate applicationTemplate = new ApplicationTemplate("io.github.geniusay.velocity.generate","OTOW");
+
+        String generate = velocityCodeEngine.generate(applicationTemplate);
+        System.out.println(generate);
+    }
 }

@@ -36,10 +36,15 @@ public class MetaMethodParam extends ImportChecker{
         this.addImportClazz(clazz);
     }
 
-    public MetaMethodParam(String clazz,String classPath, String name) {
+    public MetaMethodParam(String clazz, String classPath, String name) {
         this.name = name;
         this.clazz = clazz;
         this.addImportPath(classPath);
+    }
+
+    public MetaMethodParam(String clazz, String name) {
+        this.name = name;
+        this.clazz = clazz;
     }
 
     public MetaMethodParam(Class<?> clazz, MetaAnnotation annotation) {

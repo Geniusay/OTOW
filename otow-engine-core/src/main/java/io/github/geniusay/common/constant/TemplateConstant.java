@@ -4,6 +4,7 @@ import io.github.geniusay.template.java.meta.MetaAnnotation;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,4 +33,6 @@ public class TemplateConstant {
     );
 
     public static final MetaAnnotation REQUEST_BODY = new MetaAnnotation(RequestBody.class);
+
+    public static final MetaAnnotation SPRING_BOOT_APPLICATION = new MetaAnnotation(SpringBootApplication.class);
 }

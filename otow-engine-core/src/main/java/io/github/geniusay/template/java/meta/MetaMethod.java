@@ -20,6 +20,8 @@ public class MetaMethod extends ImportChecker{
 
     private List<MetaAnnotation> annotations = new ArrayList<>();
 
+    private boolean staticFlag = false;
+
     public MetaMethod(String methodName, Class<?> returnRes, List<MetaMethodParam> params, String methodBody, List<MetaAnnotation> annotations) {
         this.methodName = methodName;
         this.returnRes = returnRes.getSimpleName();
@@ -50,5 +52,9 @@ public class MetaMethod extends ImportChecker{
     protected void addParams(List<MetaMethodParam> params){
         addImportCheckers(params);
         this.methodParams.addAll(params);
+    }
+
+    public void setIsStatic(boolean isStatic){
+        this.staticFlag = isStatic;
     }
 }
