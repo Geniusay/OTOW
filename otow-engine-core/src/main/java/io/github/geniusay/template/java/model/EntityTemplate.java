@@ -1,6 +1,8 @@
 package io.github.geniusay.template.java.model;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.github.geniusay.template.java.ClassTemplate;
+import io.github.geniusay.template.java.meta.MetaAnnotation;
 import org.apache.velocity.VelocityContext;
 
 import java.util.stream.Collectors;
@@ -15,37 +17,28 @@ public class EntityTemplate extends ClassTemplate {
     // 数据库表名
     protected String tableName;
 
-    public EntityTemplate(String outputDir, String packagePath, String className, String tableName) {
-        super(outputDir, packagePath, getEntityClassName(className));
+    public EntityTemplate(String packagePath, String className, String tableName) {
+        super(packagePath, getEntityClassName(className));
         this.tableName = tableName;
-        initImports();
-        initAnnotations();
+        addAnnotation(new MetaAnnotation(TableName.class, tableName));
     }
 
     public void setTableName(String tableName) {
         this.tableName = tableName;
     }
 
-    @Override
-    public VelocityContext getContext() {
-        VelocityContext context = super.getContext();
-        context.put("tableName", tableName);
-        return context;
-    }
 
     public static String getEntityClassName(String className){
         return className+"Entity";
     }
 
-    private void initImports(){
-        addImportClazz(ENTITY_ANNOTATION);
+    @Override
+    public void initImports(){
         addImportPath("com.baomidou.mybatisplus.annotation.*");
     }
 
-    private void initAnnotations(){
-        addAnnotations(
-                ENTITY_ANNOTATION.stream().map(Class::getSimpleName).collect(Collectors.toList())
-        );
-        addAnnotation(String.format("TableName(\"%s\")", tableName));
+    @Override
+    public void initAnnotations(){
+        addAnnotations(MetaAnnotation.convertByClazz(ENTITY_ANNOTATION));
     }
 }

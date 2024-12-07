@@ -1,9 +1,14 @@
 package io.github.geniusay.common.constant;
 
+import io.github.geniusay.template.java.meta.MetaAnnotation;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.List;
 
 public class TemplateConstant {
@@ -13,4 +18,18 @@ public class TemplateConstant {
             NoArgsConstructor.class,
             Data.class
     );
+
+    public static final List<Class<?>> REQ_ANNOTATION = List.of(
+            AllArgsConstructor.class,
+            NoArgsConstructor.class,
+            Data.class,
+            Validated.class
+    );
+
+    public static final List<Class<?>> CONTROLLER_ANNOTATION = List.of(
+            RestController.class,
+            Validated.class
+    );
+
+    public static final MetaAnnotation REQUEST_BODY = new MetaAnnotation(RequestBody.class);
 }

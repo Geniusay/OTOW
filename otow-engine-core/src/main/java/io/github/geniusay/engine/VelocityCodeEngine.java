@@ -16,7 +16,7 @@ import java.util.Properties;
 /**
  * velocity工厂
  */
-public class VelocityCodeEngine extends Engine<VelocityOTOWTemplate> {
+public class VelocityCodeEngine extends Engine<VelocityOTOWTemplate, String> {
 
     private static Properties props;
 
@@ -38,18 +38,12 @@ public class VelocityCodeEngine extends Engine<VelocityOTOWTemplate> {
     }
 
     @Override
-    public void generate(VelocityOTOWTemplate template) {
+    public String generate(VelocityOTOWTemplate template) {
         VelocityEngine engine = velocityEngine();
         Template velocityTemplate = engine.getTemplate(template.getTemplateFilePath());
         VelocityContext context = template.getContext();
         StringWriter writer = new StringWriter();
         velocityTemplate.merge(context, writer);
-
-        Path filePath = Path.of(template.getOutputDir()); // 指定文件路径
-        try {
-            // 写入文件，如果文件存在则覆盖
-            Files.write(filePath, writer.toString().getBytes(), StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
-        } catch (IOException e) {
-        }
+        return writer.toString();
     }
 }

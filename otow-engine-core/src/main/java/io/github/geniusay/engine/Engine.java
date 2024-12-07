@@ -2,8 +2,8 @@ package io.github.geniusay.engine;
 
 import io.github.geniusay.template.OTOWTemplate;
 
-public abstract class Engine<T extends OTOWTemplate> {
+public abstract class Engine<T extends OTOWTemplate, R> {
 
-    public abstract void generate(T template);
+    public abstract R generate(T template);
 
 }
