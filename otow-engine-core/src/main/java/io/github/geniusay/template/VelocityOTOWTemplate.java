@@ -7,7 +7,7 @@ public abstract class VelocityOTOWTemplate extends OTOWTemplate {
     // 模板文件路径
     protected final String templateFilePath;
 
-    protected VelocityOTOWTemplate(String templateFilePath) {
+    public VelocityOTOWTemplate(String templateFilePath) {
         this.templateFilePath = templateFilePath;
     }
 

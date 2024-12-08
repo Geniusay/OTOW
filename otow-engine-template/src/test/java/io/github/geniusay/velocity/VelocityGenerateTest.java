@@ -1,10 +1,12 @@
 package io.github.geniusay.velocity;
 
 
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import io.github.geniusay.engine.VelocityCodeEngine;
+import io.github.geniusay.template.java.ApplicationConfigTemplate;
 import io.github.geniusay.template.java.service.*;
 import io.github.geniusay.template.meta.MetaAnnotation;
 import io.github.geniusay.template.meta.MetaMethod;
@@ -15,6 +17,7 @@ import org.junit.Test;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import static io.github.geniusay.common.constant.TemplateConstant.REQUEST_BODY;
 
@@ -103,6 +106,24 @@ public class VelocityGenerateTest {
         ApplicationTemplate applicationTemplate = new ApplicationTemplate("io.github.geniusay.velocity.generate","OTOW");
 
         String generate = engine.generate(applicationTemplate);
+        System.out.println(generate);
+    }
+
+    @Test
+    public void generateApplicationConfig(){
+        Map<String, Object> config = Map.of(
+                "port", 8080,
+                "mysql", Map.of(
+                        "enable", true,
+                        "url", "jdbc:mysql://127.0.0.1:3306/otow?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=UTC",
+                        "username", "root",
+                        "password", "root"
+                ),
+                "applicationName","otow"
+        );
+        String s = JSONObject.toJSONString(config);
+        ApplicationConfigTemplate configTemplate = new ApplicationConfigTemplate(JSONObject.parseObject(s));
+        String generate = engine.generate(configTemplate);
         System.out.println(generate);
     }
 }
