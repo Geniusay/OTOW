@@ -20,6 +20,9 @@ public class MetaMethod extends ImportChecker{
 
     private boolean staticFlag = false;
 
+    // 直接使用methodBody渲染，不考虑其他的内容了
+    private boolean justString = false;
+
     public MetaMethod(String methodName, Class<?> returnRes, List<MetaMethodParam> params, String methodBody, List<MetaAnnotation> annotations) {
         this.methodName = methodName;
         this.returnRes = returnRes.getSimpleName();
@@ -42,6 +45,11 @@ public class MetaMethod extends ImportChecker{
         addParams(params);
     }
 
+    public MetaMethod(String methodBody) {
+        this.methodBody = methodBody;
+        this.justString = true;
+    }
+
     public void addAnnotations(List<MetaAnnotation> annotations){
         addImportCheckers(annotations);
         this.annotations.addAll(annotations);
@@ -54,5 +62,9 @@ public class MetaMethod extends ImportChecker{
 
     public void setIsStatic(boolean isStatic){
         this.staticFlag = isStatic;
+    }
+
+    public static MetaMethod justStringReinder(String methodBody){
+        return new MetaMethod(methodBody);
     }
 }

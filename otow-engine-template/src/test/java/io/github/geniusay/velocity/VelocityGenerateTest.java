@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import io.github.geniusay.engine.VelocityCodeEngine;
+import io.github.geniusay.template.java.service.*;
 import io.github.geniusay.template.meta.MetaAnnotation;
 import io.github.geniusay.template.meta.MetaMethod;
 import io.github.geniusay.template.meta.MetaMethodParam;
@@ -19,6 +20,7 @@ import static io.github.geniusay.common.constant.TemplateConstant.REQUEST_BODY;
 
 public class VelocityGenerateTest {
 
+    private static VelocityCodeEngine engine = VelocityCodeEngine.getCodeEngine();
     private static EntityTemplate getEntityTemplate() {
         EntityTemplate userEntity = new EntityTemplate("io.github.geniusay.velocity.generate", "User", "user");
 
@@ -58,10 +60,9 @@ public class VelocityGenerateTest {
 
     @Test
     public void generateEntity(){
-        VelocityCodeEngine velocityCodeEngine = new VelocityCodeEngine();
         EntityTemplate userEntity = getEntityTemplate();
 
-        String generate = velocityCodeEngine.generate(userEntity);
+        String generate = engine.generate(userEntity);
 
         System.out.println(generate);
     }
@@ -69,13 +70,12 @@ public class VelocityGenerateTest {
 
     @Test
     public void generateController(){
-        VelocityCodeEngine velocityCodeEngine = new VelocityCodeEngine();
         ControllerTemplate userController = new ControllerTemplate("io.github.geniusay.velocity.generate", "User", "/user");
         ServiceTemplate userService = getServiceTemplate();
         userController.addService(userService);
         userController.addPostMethod(getPostMethod(),"/add/user");
-        String generateController = velocityCodeEngine.generate(userController);
-        String generateService = velocityCodeEngine.generate(userService);
+        String generateController = engine.generate(userController);
+        String generateService = engine.generate(userService);
 
         System.out.println(generateController);
         System.out.println(generateService);
@@ -84,28 +84,25 @@ public class VelocityGenerateTest {
 
     @Test
     public void generateMapper(){
-        VelocityCodeEngine velocityCodeEngine = new VelocityCodeEngine();
         MapperTemplate mapperTemplate = new MapperTemplate("io.github.geniusay.velocity.generate.mapper","User", getEntityTemplate());
 
-        String generate = velocityCodeEngine.generate(mapperTemplate);
+        String generate = engine.generate(mapperTemplate);
         System.out.println(generate);
     }
 
     @Test
     public void generateServiceImpl(){
-        VelocityCodeEngine velocityCodeEngine = new VelocityCodeEngine();
         ServiceImplTemplate serviceImplTemplate = new ServiceImplTemplate("io.github.geniusay.velocity.generate.service.impl","User", getServiceTemplate());
 
-        String generate = velocityCodeEngine.generate(serviceImplTemplate);
+        String generate = engine.generate(serviceImplTemplate);
         System.out.println(generate);
     }
 
     @Test
     public void generateApplication(){
-        VelocityCodeEngine velocityCodeEngine = new VelocityCodeEngine();
         ApplicationTemplate applicationTemplate = new ApplicationTemplate("io.github.geniusay.velocity.generate","OTOW");
 
-        String generate = velocityCodeEngine.generate(applicationTemplate);
+        String generate = engine.generate(applicationTemplate);
         System.out.println(generate);
     }
 }

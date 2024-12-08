@@ -1,4 +1,4 @@
-package io.github.geniusay.template.java.model;
+package io.github.geniusay.template.java.service;
 
 import io.github.geniusay.template.java.ClassTemplate;
 import io.github.geniusay.template.meta.MetaAnnotation;

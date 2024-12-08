@@ -13,6 +13,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import static io.github.geniusay.common.constant.TemplateConstant.CLASS_TEMPLATE_PATH;
+
 /**
  * 类文件生成模板
  */
@@ -41,7 +43,6 @@ public abstract class ClassTemplate extends JavaOTOWTemplate {
 
     protected final String className;
 
-    private static final String CLASS_TEMPLATE_PATH = "class.java.vm";
     public ClassTemplate(String packagePath, String className) {
         super(CLASS_TEMPLATE_PATH);
         initImports();

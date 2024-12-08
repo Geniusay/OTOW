@@ -1,8 +1,9 @@
-package io.github.geniusay.template.java.model;
+package io.github.geniusay.template.java.service;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.mapper.Mapper;
 import io.github.geniusay.template.java.InterfaceTemplate;
+import io.github.geniusay.template.java.model.EntityTemplate;
 import io.github.geniusay.template.meta.MetaAnnotation;
 
 public class MapperTemplate extends InterfaceTemplate {

@@ -1,6 +1,7 @@
-package io.github.geniusay.template.java.model;
+package io.github.geniusay.template.java.service;
 
 import io.github.geniusay.template.java.ClassTemplate;
+import io.github.geniusay.template.java.method.ApplicationMethodTemplate;
 import io.github.geniusay.template.meta.MetaMethod;
 import io.github.geniusay.template.meta.MetaMethodParam;
 import org.springframework.boot.SpringApplication;
@@ -17,11 +18,8 @@ public class ApplicationTemplate extends ClassTemplate {
     }
 
     public void initMethod(){
-        String body = String.format("SpringApplication.run(%s.class, args);", className);
-        MetaMethod metaMethod = new MetaMethod("main", List.of(new MetaMethodParam("String[]", "args")), body);
-        metaMethod.addImportClazz(SpringApplication.class);
-        metaMethod.setIsStatic(true);
-        this.addMethod(metaMethod);
+        ApplicationMethodTemplate methodTemplate = new ApplicationMethodTemplate(className);
+        this.addMethod(methodTemplate.generateMethod());
     }
 
     @Override

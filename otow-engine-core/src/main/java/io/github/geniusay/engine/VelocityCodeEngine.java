@@ -20,8 +20,6 @@ public class VelocityCodeEngine extends Engine<VelocityOTOWTemplate, String> {
 
     private static Properties props;
 
-    private VelocityEngine engine;
-
     static{
         props = new Properties();
         String resourcePath = Objects.requireNonNull(VelocityCodeEngine.class.getClassLoader().getResource("template")).getPath();
@@ -30,16 +28,20 @@ public class VelocityCodeEngine extends Engine<VelocityOTOWTemplate, String> {
         props.setProperty("output.encoding", "UTF-8"); // 设置输出文件的编码
     }
 
-    public VelocityEngine velocityEngine(){
-        if(engine==null){
-            engine = new VelocityEngine(props);
-        }
-        return engine;
+    private static VelocityCodeEngine codeEngine = new VelocityCodeEngine();
+
+    private VelocityEngine engine;
+
+    public VelocityCodeEngine() {
+        this.engine = new VelocityEngine(props);
+    }
+
+    public static VelocityCodeEngine getCodeEngine(){
+        return codeEngine;
     }
 
     @Override
     public String generate(VelocityOTOWTemplate template) {
-        VelocityEngine engine = velocityEngine();
         Template velocityTemplate = engine.getTemplate(template.getTemplateFilePath());
         VelocityContext context = template.getContext();
         StringWriter writer = new StringWriter();

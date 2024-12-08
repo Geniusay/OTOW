@@ -10,6 +10,8 @@ import org.apache.velocity.VelocityContext;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static io.github.geniusay.common.constant.TemplateConstant.INTERFACE_TEMPLATE_PATH;
+
 public abstract class InterfaceTemplate extends JavaOTOWTemplate{
     // 类需要导入的类
     protected final Set<String> imports = new HashSet<>();
@@ -26,8 +28,6 @@ public abstract class InterfaceTemplate extends JavaOTOWTemplate{
 
     // 继承的父类
     protected String fatherClazz = "";
-
-    private static final String INTERFACE_TEMPLATE_PATH = "interface.java.vm";
 
     public InterfaceTemplate(String packagePath, String className) {
         super(INTERFACE_TEMPLATE_PATH);

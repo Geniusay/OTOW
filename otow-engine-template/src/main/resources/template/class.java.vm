@@ -22,10 +22,13 @@ public class ${className}#if($fatherClazz!="") extends ${fatherClazz}#end #if($i
 
 #end
 #foreach($method in $methods)
-        #renderAnnotations($!method.annotations)
+    #if(${method.justString})
+    $!method.methodBody
+    #else
+    #renderAnnotations($!method.annotations)
     public #if(${method.staticFlag})static #end$!method.returnRes ${method.methodName}(#foreach($param in ${method.methodParams})#renderAnnotations($param.annotations)$param.clazz $param.name#if($foreach.hasNext),#end#end){
         $!method.methodBody
     }
-
+    #end
 #end
 }

@@ -34,4 +34,9 @@ public class TemplateConstant {
     public static final MetaAnnotation REQUEST_BODY = new MetaAnnotation(RequestBody.class);
 
     public static final MetaAnnotation SPRING_BOOT_APPLICATION = new MetaAnnotation(SpringBootApplication.class);
+
+    // 模板文件路径
+    public static final String CLASS_TEMPLATE_PATH = "class.java.vm";
+
+    public static final String INTERFACE_TEMPLATE_PATH = "interface.java.vm";
 }
