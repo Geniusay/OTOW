@@ -1,6 +1,5 @@
 package io.github.geniusay.utils;
 
-import io.github.geniusay.template.java.meta.MetaAnnotation;
 
 public class ImportUtil {
 

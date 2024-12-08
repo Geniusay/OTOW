@@ -1,6 +1,4 @@
-package io.github.geniusay.template.java.meta;
-
-import io.github.geniusay.utils.ImportUtil;
+package io.github.geniusay.template.meta;
 
 import java.util.HashSet;
 import java.util.List;

@@ -2,10 +2,7 @@ package io.github.geniusay.template.java.model;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.github.geniusay.template.java.ClassTemplate;
-import io.github.geniusay.template.java.meta.MetaAnnotation;
-import org.apache.velocity.VelocityContext;
-
-import java.util.stream.Collectors;
+import io.github.geniusay.template.meta.MetaAnnotation;
 
 import static io.github.geniusay.common.constant.TemplateConstant.ENTITY_ANNOTATION;
 

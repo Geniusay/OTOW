@@ -1,9 +1,8 @@
 package io.github.geniusay.template.java.model;
 
 import io.github.geniusay.template.java.ClassTemplate;
-import io.github.geniusay.template.java.meta.MetaAnnotation;
-import io.github.geniusay.template.java.meta.MetaMethod;
-import io.github.geniusay.template.java.meta.MetaMethodParam;
+import io.github.geniusay.template.meta.MetaMethod;
+import io.github.geniusay.template.meta.MetaMethodParam;
 import org.springframework.boot.SpringApplication;
 
 import java.util.List;

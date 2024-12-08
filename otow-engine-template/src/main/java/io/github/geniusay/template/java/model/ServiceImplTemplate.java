@@ -1,7 +1,7 @@
 package io.github.geniusay.template.java.model;
 
 import io.github.geniusay.template.java.ClassTemplate;
-import io.github.geniusay.template.java.meta.MetaAnnotation;
+import io.github.geniusay.template.meta.MetaAnnotation;
 import org.springframework.stereotype.Service;
 
 public class ServiceImplTemplate extends ClassTemplate {

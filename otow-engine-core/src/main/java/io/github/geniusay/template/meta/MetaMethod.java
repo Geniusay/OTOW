@@ -1,11 +1,9 @@
-package io.github.geniusay.template.java.meta;
+package io.github.geniusay.template.meta;
 
 import lombok.Data;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Data
 public class MetaMethod extends ImportChecker{

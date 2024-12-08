@@ -5,17 +5,15 @@ import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import io.github.geniusay.engine.VelocityCodeEngine;
-import io.github.geniusay.template.java.meta.MetaAnnotation;
-import io.github.geniusay.template.java.meta.MetaMethod;
-import io.github.geniusay.template.java.meta.MetaMethodParam;
-import io.github.geniusay.template.java.meta.MetalField;
+import io.github.geniusay.template.meta.MetaAnnotation;
+import io.github.geniusay.template.meta.MetaMethod;
+import io.github.geniusay.template.meta.MetaMethodParam;
+import io.github.geniusay.template.meta.MetalField;
 import io.github.geniusay.template.java.model.*;
 import org.junit.Test;
 
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 import static io.github.geniusay.common.constant.TemplateConstant.REQUEST_BODY;
 

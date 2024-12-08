@@ -1,7 +1,7 @@
 package io.github.geniusay.template.java.model;
 
 import io.github.geniusay.template.java.ClassTemplate;
-import io.github.geniusay.template.java.meta.MetaAnnotation;
+import io.github.geniusay.template.meta.MetaAnnotation;
 
 import static io.github.geniusay.common.constant.TemplateConstant.REQ_ANNOTATION;
 

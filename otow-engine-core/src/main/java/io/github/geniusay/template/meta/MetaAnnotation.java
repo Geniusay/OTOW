@@ -1,4 +1,4 @@
-package io.github.geniusay.template.java.meta;
+package io.github.geniusay.template.meta;
 
 import lombok.Data;
 

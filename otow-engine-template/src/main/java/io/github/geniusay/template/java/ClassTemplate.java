@@ -1,9 +1,9 @@
 package io.github.geniusay.template.java;
 
-import io.github.geniusay.template.java.meta.ImportChecker;
-import io.github.geniusay.template.java.meta.MetaAnnotation;
-import io.github.geniusay.template.java.meta.MetaMethod;
-import io.github.geniusay.template.java.meta.MetalField;
+import io.github.geniusay.template.meta.ImportChecker;
+import io.github.geniusay.template.meta.MetaAnnotation;
+import io.github.geniusay.template.meta.MetaMethod;
+import io.github.geniusay.template.meta.MetalField;
 import io.github.geniusay.utils.ImportUtil;
 import org.apache.velocity.VelocityContext;
 

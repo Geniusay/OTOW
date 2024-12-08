@@ -1,6 +1,6 @@
 package io.github.geniusay.common.constant;
 
-import io.github.geniusay.template.java.meta.MetaAnnotation;
+import io.github.geniusay.template.meta.MetaAnnotation;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,7 +9,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
 import java.util.List;
 
 public class TemplateConstant {
