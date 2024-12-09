@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import io.github.geniusay.engine.VelocityCodeEngine;
 import io.github.geniusay.template.java.ApplicationConfigTemplate;
+import io.github.geniusay.template.java.PomConfigTemplate;
 import io.github.geniusay.template.java.service.*;
 import io.github.geniusay.template.meta.MetaAnnotation;
 import io.github.geniusay.template.meta.MetaMethod;
@@ -125,5 +126,11 @@ public class VelocityGenerateTest {
         ApplicationConfigTemplate configTemplate = new ApplicationConfigTemplate(JSONObject.parseObject(s));
         String generate = engine.generate(configTemplate);
         System.out.println(generate);
+    }
+
+    @Test
+    public void generatePomConfig(){
+        PomConfigTemplate pomConfigTemplate = new PomConfigTemplate();
+        System.out.println(engine.generate(pomConfigTemplate));
     }
 }

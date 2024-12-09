@@ -14,4 +14,5 @@ public interface SolutionGuide extends ParamsProvider {
 
     // 父级方案
     List<Class<? extends Solution>> fatherSolutions();
+
 }

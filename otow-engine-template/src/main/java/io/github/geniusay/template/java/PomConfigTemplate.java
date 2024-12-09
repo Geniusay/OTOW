@@ -6,7 +6,7 @@ import org.apache.velocity.VelocityContext;
 //TODO pom配置文件模板
 public class PomConfigTemplate extends VelocityOTOWTemplate {
 
-    protected PomConfigTemplate() {
+    public PomConfigTemplate() {
         super("pom.xml.vm");
     }
 

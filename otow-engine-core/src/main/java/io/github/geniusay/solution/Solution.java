@@ -39,4 +39,6 @@ public abstract class Solution implements SolutionExecutor, SolutionGuide{
     public void addFileReference(Object...fileReferences){
         this.fileReferences.addAll(List.of(fileReferences));
     }
+
+
 }
