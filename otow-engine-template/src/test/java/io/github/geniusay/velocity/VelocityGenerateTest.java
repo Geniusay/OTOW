@@ -171,18 +171,4 @@ public class VelocityGenerateTest {
         System.out.println(engine.generate(pomConfigTemplate));
     }
 
-    @Test
-    public void testGenerateAddServiceMethod() {
-        // 设定测试时的模板路径
-        String templateFilePath = "template/application.method.java.vm";  // 正确路径
-        String applicationClazz = "UserApplication"; // 传入的 applicationClazz
-        ApplicationMethodTemplate addServiceMethodTemplate = new ApplicationMethodTemplate(applicationClazz);
-
-        // 使用引擎生成代码
-        String generatedCode = engine.generate(addServiceMethodTemplate);
-
-        // 打印生成的代码，方便检查
-        System.out.println(generatedCode);
-    }
-
 }
