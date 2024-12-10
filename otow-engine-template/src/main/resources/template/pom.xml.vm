@@ -16,9 +16,6 @@
     <url>http://maven.apache.org</url>
 
     <properties>
-        <mysql.version>8.0.23</mysql.version>
-        <mybatis.version>2.2.2</mybatis.version>
-        <mybatis-plus.version>3.4.1</mybatis-plus.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         #foreach($propertie in $properties)
             <${propertie.name}>${propertie.value}</${propertie.name}>
@@ -30,19 +27,19 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql.version}</version>
+            <version>8.0.23</version>
         </dependency>
         <!--mybatis-->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>${mybatis.version}</version>
+            <version>2.2.2</version>
         </dependency>
         <!--mybatis-plus-->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>${mybatis-plus.version}</version>
+            <version>3.4.1</version>
         </dependency>
         #foreach($dependency in $dependencies)
             <dependency>
