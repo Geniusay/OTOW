@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import io.github.geniusay.engine.VelocityCodeEngine;
 import io.github.geniusay.template.java.ApplicationConfigTemplate;
 import io.github.geniusay.template.java.PomConfigTemplate;
+import io.github.geniusay.template.java.method.*;
 import io.github.geniusay.template.java.service.*;
 import io.github.geniusay.template.meta.MetaAnnotation;
 import io.github.geniusay.template.meta.MetaMethod;
@@ -110,6 +111,42 @@ public class VelocityGenerateTest {
         System.out.println(generate);
     }
 
+    // service 的增加方法
+    @Test
+    public void generateAddService(){
+        AddServiceMethodTemplate addServiceMethodTemplate = new AddServiceMethodTemplate("service.method.save.java.vm","User");
+
+        String generate = engine.generate(addServiceMethodTemplate);
+        System.out.println(generate);
+    }
+
+    // service的删除方法
+    @Test
+    public void generateDeleteService(){
+        DeleteServiceMethodTemplate deleteServiceMethodTemplate = new DeleteServiceMethodTemplate("service.method.delete.java.vm","User");
+
+        String generate = engine.generate(deleteServiceMethodTemplate);
+        System.out.println(generate);
+    }
+
+    // service的查找方法
+    @Test
+    public void generateSelectService(){
+        SelectServiceMethodTemplate selectServiceMethodTemplate = new SelectServiceMethodTemplate("service.method.select.java.vm","User");
+
+        String generate = engine.generate(selectServiceMethodTemplate);
+        System.out.println(generate);
+    }
+
+    // service的更新方法
+    @Test
+    public void generateUpdateService(){
+        UpdateServiceMethodTemplate updateServiceMethodTemplate = new UpdateServiceMethodTemplate("service.method.update.java.vm","User");
+
+        String generate = engine.generate(updateServiceMethodTemplate);
+        System.out.println(generate);
+    }
+
     @Test
     public void generateApplicationConfig(){
         Map<String, Object> config = Map.of(
@@ -133,4 +170,19 @@ public class VelocityGenerateTest {
         PomConfigTemplate pomConfigTemplate = new PomConfigTemplate();
         System.out.println(engine.generate(pomConfigTemplate));
     }
+
+    @Test
+    public void testGenerateAddServiceMethod() {
+        // 设定测试时的模板路径
+        String templateFilePath = "template/application.method.java.vm";  // 正确路径
+        String applicationClazz = "UserApplication"; // 传入的 applicationClazz
+        ApplicationMethodTemplate addServiceMethodTemplate = new ApplicationMethodTemplate(applicationClazz);
+
+        // 使用引擎生成代码
+        String generatedCode = engine.generate(addServiceMethodTemplate);
+
+        // 打印生成的代码，方便检查
+        System.out.println(generatedCode);
+    }
+
 }

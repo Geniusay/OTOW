@@ -5,11 +5,11 @@ import java.io.IOException;
 
 /**
  * @Author: zq
- * @Description: TODO
+ * @Description:
  * @Date: 2024/12/2 15:48
  * @Version: 1.8
  */
-public class createFramePack {
+public class CreateFramePack {
     /**
      * 创建指定的目录结构
      *

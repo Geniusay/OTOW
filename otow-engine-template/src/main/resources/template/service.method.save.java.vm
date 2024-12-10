@@ -1,0 +1,4 @@
+// Save method
+public void save${entityClassName}(${entityClassName} ${entityClassNameLower}) {
+    ${entityClassNameLower}Mapper.save(${entityClassNameLower});
+}
