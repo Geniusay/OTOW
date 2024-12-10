@@ -9,11 +9,11 @@ import java.util.zip.ZipInputStream;
 
 /**
  * @Author: zq
- * @Description: TODO
+ * @Description:
  * @Date: 2024/12/2 15:48
  * @Version: 1.8
  */
-public class createFramePackByZip {
+public class CreateFramePackByZip {
     /**
      * 解压ZIP文件到指定目录
      *
