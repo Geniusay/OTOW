@@ -167,8 +167,21 @@ public class VelocityGenerateTest {
 
     @Test
     public void generatePomConfig(){
-        PomConfigTemplate pomConfigTemplate = new PomConfigTemplate();
-        System.out.println(engine.generate(pomConfigTemplate));
+        Map<String, Object> dependency = Map.of(
+                "groupId", "org.springframework.boot",
+                "artifactId", "spring-boot-starter-test",
+                "version","${boot.version}"
+        );
+
+        Map<String, Object> property = Map.of(
+                "name", "boot.version",
+                "value", "2.3.9.RELEASE"
+        );
+        PomConfigTemplate configTemplate = new PomConfigTemplate();
+        configTemplate.addDependency(dependency);
+        configTemplate.addProperties(property);
+        String generate = engine.generate(configTemplate);
+        System.out.println(generate);
     }
 
 }
