@@ -26,8 +26,7 @@ public class DeleteServiceMethodTemplate extends MethodTemplate {
     @Override
     public VelocityContext getContext() {
         VelocityContext context = new VelocityContext();
-        context.put("entityClassName",entityClassName);
-        context.put("entityClassNameLower",entityClassName.toLowerCase());
+        context.put("entityClassName",entityClassName.toLowerCase());
         return context;
     }
 }
