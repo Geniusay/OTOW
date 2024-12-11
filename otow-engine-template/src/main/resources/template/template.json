@@ -18,7 +18,7 @@
           },
           "port": "8080",
           // 后端代码模块
-          "module": [
+          "javaModule": [
             {
               "name": "学生",
               "fields": [],  //成员属性

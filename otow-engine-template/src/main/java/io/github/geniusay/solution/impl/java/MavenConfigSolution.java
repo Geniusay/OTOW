@@ -6,6 +6,8 @@ import io.github.geniusay.solution.SolutionStep;
 
 import java.util.List;
 
+import static io.github.geniusay.common.SolutionConstant.MAVEN_CONFIG_SOLUTION;
+
 public class MavenConfigSolution extends Solution {
 
     @Override
@@ -15,7 +17,7 @@ public class MavenConfigSolution extends Solution {
 
     @Override
     public String solutionName() {
-        return null;
+        return MAVEN_CONFIG_SOLUTION;
     }
 
     @Override

@@ -8,6 +8,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+import static io.github.geniusay.common.SolutionConstant.JAVA_PROJECT_SOLUTION;
+
 @Component
 public class JavaProjectStructureSolution extends Solution {
 
@@ -18,7 +20,7 @@ public class JavaProjectStructureSolution extends Solution {
 
     @Override
     public String solutionName() {
-        return null;
+        return JAVA_PROJECT_SOLUTION;
     }
 
     @Override

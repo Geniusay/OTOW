@@ -4,6 +4,8 @@ import io.github.geniusay.solution.CodingSolutionStep;
 import io.github.geniusay.solution.Solution;
 import io.github.geniusay.solution.SolutionStep;
 
+import static io.github.geniusay.common.SolutionConstant.JAVA_MODULE_SOLUTION;
+
 public class JavaModuleSolution extends Solution{
 
     @Override
@@ -18,6 +20,6 @@ public class JavaModuleSolution extends Solution{
 
     @Override
     public String solutionName() {
-        return null;
+        return JAVA_MODULE_SOLUTION;
     }
 }
