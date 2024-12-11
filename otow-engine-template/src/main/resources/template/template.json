@@ -3,6 +3,7 @@
   "god": {
     "projectName": "studentSystem",
     "user": "genius",
+    "root": "./",
     "projects": [
       {
         "language": "java",
